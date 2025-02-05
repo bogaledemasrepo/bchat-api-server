@@ -15,7 +15,7 @@ const userSchama = mongoose.Schema({
     type: String,
     required: true,
   },
-  frinds: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
+  friends: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
 });
 userSchama.pre("save", function (next) {
   const user = this;
@@ -35,7 +35,10 @@ userSchama.methods.comparePassword = async function (psd) {
   const istrue = await bycrpt.compare(psd, this.password);
   return istrue;
 };
-
+userSchama.pre(/^find/g, function (next) {
+  this.select("-password -__v");
+  next();
+});
 const User = mongoose.model("User", userSchama);
 
 module.exports = User;

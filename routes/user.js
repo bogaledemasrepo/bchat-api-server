@@ -1,8 +1,10 @@
 const express = require("express");
+const User = require("../controlers/user");
+
 const userRoutes = express.Router();
-userRoutes.get("users/explorable", (req, res) => {});
-userRoutes.get("users/myFriend", (req, res) => {});
-userRoutes.post("signIn", (req, res) => {});
-userRoutes.post("signUp", (req, res) => {});
+
+userRoutes.get("/explorable", User.getExplorableUser);
+userRoutes.post("/signIn", User.signIn);
+userRoutes.post("/signUp", User.signUp);
 
 module.exports = { userRoutes };

@@ -1,10 +1,14 @@
 const express = require("express");
+const Friend = require("../controlers/friend");
+
 const friendRoutes = express.Router();
-friendRoutes.get("/addRequesit", (req, res) => {});
-friendRoutes.get("/requesitReplay", (req, res) => {});
-friendRoutes.post("/addRequesit", (req, res) => {});
-friendRoutes.post("/replayRequesit", (req, res) => {});
-friendRoutes.post("/deleteFriend/:userId", (req, res) => {});
+
+friendRoutes.get("/", Friend.getAllFriends);
+friendRoutes.get("/requesit", Friend.getFriendRequesit);
+friendRoutes.get("/requesitReplay", Friend.getFriendRequesitReplay);
+friendRoutes.post("/requesit", Friend.makeFriendRequesit);
+friendRoutes.post("/replayRequesit", Friend.makeFriendRequesitReplay);
+friendRoutes.delete("/deleteFriend/:userId", Friend.deleteFriend);
 module.exports = {
   friendRoutes,
 };

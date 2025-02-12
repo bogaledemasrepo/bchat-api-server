@@ -1,6 +1,7 @@
 const express = require("express");
+const Profile = require("../controlers/profile");
 
 const profileRoutes = express.Router();
-profileRoutes.post("deleteMe", (req, res) => {});
-profileRoutes.post("updateMe", (req, res) => {});
+profileRoutes.delete("/deleteMe", Profile.deleteMyProfile);
+profileRoutes.patch("/updateMe", Profile.updateMyProfile);
 module.exports = { profileRoutes };

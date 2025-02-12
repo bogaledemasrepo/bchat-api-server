@@ -1,10 +1,22 @@
+const chat = require("../model/chat");
+const Chat = require("../model/chat");
 const getAllMyChats = async (req, res) => {
+  // const resp = await Chat.find({ sender: req.user._id });
   res.json({ msg: "Get All may chats" });
 };
 const getMyChatWithFriends = async (req, res) => {
+  const resp = await Chat.find(
+    { sender: req.user._id },
+    { chatType: "Individual" }
+  );
   res.json({ msg: "Get chats detail with friend someone" });
 };
 const getChatDetailWithFriend = async (req, res) => {
+  const { friendId } = req.param;
+  const resp = await Chat.find(
+    { sender: { $or: [friendId, "userId"] } },
+    { receiver: { $or: [friendId, "userId"] } }
+  );
   res.json({ msg: "Get chats detail with friend someone" });
 };
 const getMyChatWithGroups = async (req, res) => {

@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: express-api
+    runtime: node
+    buildCommand: pnpm
+    startCommand: node server.js
+    plan: starter

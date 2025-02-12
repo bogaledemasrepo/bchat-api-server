@@ -38,11 +38,6 @@
 <!--
     # get('users/explorable',(req,res)=>{})
     # get('users/myFriend',(req,res)=>{})
-    -->
-
-# Auth Route
-
-<!--
     # post('signIn',(req,res)=>{})
     # post('signUp',(req,res)=>{})
     -->

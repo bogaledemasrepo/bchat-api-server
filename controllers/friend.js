@@ -2,20 +2,18 @@ const Friendrequesit = require("../model/FriendRequesit");
 const User = require("../model/user");
 const getAllFriends = async (req, res) => {
   try {
-    const friendsId = await User.findOne(
+    const resp = await User.findOne(
       { _id: req.user._id },
       { friends: 1 }
-    ).populate({ path: "friends", select: "_id" });
-    console.log(friendsId);
-    return res.status(200).json({ success: true, data: friendsId });
+    ).populate("friends");
+    return res.status(200).json({ success: true, data: resp.friends });
   } catch (error) {}
   return res.status(401).json({ msg: "Something went wrong!" });
 };
 const getFriendRequesit = async (req, res) => {
-  const { _id } = req.user;
   try {
     const friendRequesits = await Friendrequesit.find(
-      { requesitTo: _id },
+      { requesitTo: req.user._id },
       { _id: 1, fullname: 1, email: 1, profile: 1 }
     );
     return res.status(200).json({ success: true, data: friendRequesits });
@@ -34,15 +32,36 @@ const makeFriendRequesit = (req, res) => {
     return res.status(401).json({ msg: "Something went wrong!" });
   }
 };
-const getFriendRequesitReplay = (req, res) => {
-  return res.status(200).json({ msg: "get friend requesit" });
+const getFriendRequesitReplay = async (req, res) => {
+  try {
+    const requesitReplay = await Friendrequesit.find(
+      { status: "pending" },
+      { requestedBy: req.user._id }
+    );
+    return res.status(200).json({ success: true, data: requesitReplay });
+  } catch (error) {
+    return res.status(401).json({ msg: "Something went wrong!" });
+  }
 };
-const makeFriendRequesitReplay = (req, res) => {
-  return res.status(200).json({ msg: "make friend requesit" });
+const makeFriendRequesitReplay = async (req, res) => {
+  try {
+    const requesitReplay = await Friendrequesit.findByIdAndUpdate(
+      req.body.requesitId,
+      { status: req.body.responce }
+    );
+    return res.status(200).json({ success: true, data: requesitReplay });
+  } catch (error) {
+    return res.status(401).json({ msg: "Something went wrong!" });
+  }
 };
 
-const deleteFriend = (req, res) => {
-  return res.status(200).json({ msg: "Delete friend" });
+const deleteFriend = async (req, res) => {
+  const toUpdate = await User.findById(req.user._id);
+  const updated = toUpdate.friends.filter((Item) => {
+    return JSON.stringify(Item) !== JSON.stringify(req.body.userId);
+  });
+  await User.findByIdAndUpdate(req.user._id, { friends: [...updated] });
+  return res.status(200).json({ msg: "Friend deleted" });
 };
 module.exports = {
   getAllFriends,

@@ -1,13 +1,13 @@
-const { chatGroupRoutes } = require("./chatGroups");
+const { userRoutes } = require("./user");
 const { friendRoutes } = require("./friends");
 const { profileRoutes } = require("./profile");
-const { userRoutes } = require("./user");
-const { chatRoutes } = require("./chats");
+const { CIRoutes } = require("./CItem");
+const { CDRoutes } = require("./CDetail");
 
 module.exports = {
-  chatGroupRoutes,
+  userRoutes,
   friendRoutes,
   profileRoutes,
-  userRoutes,
-  chatRoutes,
+  CIRoutes,
+  CDRoutes,
 };

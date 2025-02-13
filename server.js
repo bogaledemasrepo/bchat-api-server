@@ -16,10 +16,10 @@ mongoose.connection.on("disconnected", () => {
 const app = express();
 app.use(express.json());
 app.use(`${BASEURL}/users`, routes.userRoutes);
-app.use(`${BASEURL}/profile`, isAutherized, routes.profileRoutes);
-app.use(`${BASEURL}/chats`, isAutherized, routes.chatRoutes);
 app.use(`${BASEURL}/friends`, isAutherized, routes.friendRoutes);
-app.use(`${BASEURL}/chatGroups`, isAutherized, routes.chatGroupRoutes);
+app.use(`${BASEURL}/profile`, isAutherized, routes.profileRoutes);
+app.use(`${BASEURL}/chatDetail`, isAutherized, routes.CDRoutes);
+app.use(`${BASEURL}/chatItem`, isAutherized, routes.CIRoutes);
 
 app.listen(port, () => {
   console.log(`Server app listening on port ${port}`);

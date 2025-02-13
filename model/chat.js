@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
-
-const chatSchema = mongoose.Schema({
+const chatSchema = new mongoose.Schema({
   sender: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
     required: [true, "chat must have chat sender"],
   },
   chatType: {
-    type: "Individual" || "Group",
+    type: String,
     required: true,
+    Enumerator: ["Individual", "Group"],
   },
   sendTo: {
     type: mongoose.Schema.ObjectId,
@@ -27,4 +27,4 @@ const chatSchema = mongoose.Schema({
     },
   ],
 });
-module.exports = mongoose.Model("Chat", chatSchema);
+module.exports = mongoose.model("Chat", chatSchema);

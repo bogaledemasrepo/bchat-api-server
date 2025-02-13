@@ -1,5 +1,5 @@
 const express = require("express");
-const Control = require("../controlers/chatGroup");
+const Control = require("../controllers/chatGroup");
 const chatGroupRoutes = express.Router();
 
 chatGroupRoutes.get("/", Control.fetchUserChatGroups);

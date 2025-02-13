@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const groupSchema = mongoose.Schema({
+const groupSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Group must have to name"],
@@ -16,7 +16,7 @@ const groupSchema = mongoose.Schema({
     },
   ],
 });
-module.exports = mongoose.Model("Group", groupSchema);
+module.exports = mongoose.model("Group", groupSchema);
 // const temp = [
 //   {
 //     id: "groupid",

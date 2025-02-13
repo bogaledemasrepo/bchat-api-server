@@ -1,9 +1,10 @@
 const express = require("express");
-const User = require("../controlers/user");
+const User = require("../controllers/user");
+const isAutherized = require("../middleware/isAutherized");
 
 const userRoutes = express.Router();
 
-userRoutes.get("/explorable", User.getExplorableUser);
+userRoutes.get("/explorable", isAutherized, User.getExplorableUser);
 userRoutes.post("/signIn", User.signIn);
 userRoutes.post("/signUp", User.signUp);
 

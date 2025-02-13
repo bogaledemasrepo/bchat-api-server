@@ -1,5 +1,5 @@
 const express = require("express");
-const Profile = require("../controlers/profile");
+const Profile = require("../controllers/profile");
 
 const profileRoutes = express.Router();
 profileRoutes.delete("/deleteMe", Profile.deleteMyProfile);

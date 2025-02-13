@@ -17,11 +17,3 @@ const groupSchema = new mongoose.Schema({
   ],
 });
 module.exports = mongoose.model("Group", groupSchema);
-// const temp = [
-//   {
-//     id: "groupid",
-//     name: "groupname",
-//     admin: "groupadmin",
-//     members: ["lnasdlklk"],
-//   },
-// ];

@@ -46,7 +46,10 @@ const signIn = async (req, res) => {
   });
 };
 const getExplorableUser = async (req, res) => {
-  const explorable = await User.find({ explorable: true });
+  const explorable = await User.find(
+    { explorable: true },
+    { email: 1, fullname: 1, profile: 1 }
+  );
   res.json({ success: true, data: [...explorable] });
 };
 module.exports = { signIn, signUp, getExplorableUser };

@@ -16,11 +16,9 @@ const chatDetailSchema = new mongoose.Schema({
       url: String,
     },
   ],
-  chatItem: [
-    {
-      type: mongoose.Schema.ObjectId,
-      ref: "CItem",
-    },
-  ],
+  chatItem: {
+    type: mongoose.Schema.ObjectId,
+    ref: "CItem",
+  },
 });
 module.exports = mongoose.model("CDetail", chatDetailSchema);

@@ -2,6 +2,7 @@ require("dotenv").config({ path: [".env.local", ".env"] });
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const cors = require("cors");
 const isAutherized = require("./middleware/isAutherized");
 const port = process.env.PORT || 3000;
 const BASEURL = ["/bchat/api/v1"];
@@ -14,6 +15,7 @@ mongoose.connection.on("disconnected", () => {
   console.log("DB Error!");
 });
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(`${BASEURL}/users`, routes.userRoutes);
 app.use(`${BASEURL}/friends`, isAutherized, routes.friendRoutes);

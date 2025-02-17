@@ -1,10 +1,31 @@
 const CItem = require("../model/CItem");
 const getAllChatItems = async (req, res) => {
   try {
-    const resp = await CItem.find({
-      members: { $in: [req.user._id] },
-    });
-    res.status(200).json({ success: true, data: { resp } });
+    const resp = await CItem.find(
+      {
+        members: { $in: [req.user._id] },
+      },
+      { name: 1, membership: 1 }
+    );
+    res.status(200).json({ success: true, data: [...resp] });
+  } catch (error) {
+    res.status(500).json({ msg: "Something went wrong" });
+  }
+};
+const getFavoriateChatItems = async (req, res) => {
+  try {
+    const resp = await CItem.find(
+      {
+        $and: [
+          {
+            members: { $in: [req.user._id] },
+          },
+          { isFavorite: true },
+        ],
+      },
+      { name: 1, membership: 1 }
+    );
+    res.status(200).json({ success: true, data: [...resp] });
   } catch (error) {
     res.status(500).json({ msg: "Something went wrong" });
   }
@@ -13,11 +34,16 @@ const getAllPersonalChatItems = async (req, res) => {
   try {
     const resp = await CItem.find(
       {
-        members: { $in: [req.user._id] },
+        $and: [
+          {
+            members: { $in: [req.user._id] },
+          },
+          { membership: "1-1" },
+        ],
       },
-      { membership: "1-1" }
+      { name: 1 }
     );
-    res.status(200).json({ success: true, data: { resp } });
+    res.status(200).json({ success: true, data: [...resp] });
   } catch (error) {
     res.status(500).json({ msg: "Something went wrong" });
   }
@@ -26,11 +52,17 @@ const getAllGroupChatItems = async (req, res) => {
   try {
     const resp = await CItem.find(
       {
-        members: { $in: [req.user._id] },
+        $and: [
+          {
+            members: { $in: [req.user._id] },
+          },
+          { membership: "M-M" },
+        ],
       },
-      { membership: "m-m" }
+      { name: 1 },
+      { membership: "m-m", name: 1 }
     );
-    res.status(200).json({ success: true, data: { resp } });
+    res.status(200).json({ success: true, data: [...resp] });
   } catch (error) {
     res.status(500).json({ msg: "Something went wrong" });
   }
@@ -113,6 +145,7 @@ const deleteFromChatItem = async (req, res) => {
 
 module.exports = {
   getAllChatItems,
+  getFavoriateChatItems,
   getAllGroupChatItems,
   getAllPersonalChatItems,
   createGroupChatItem,

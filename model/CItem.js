@@ -16,6 +16,10 @@ const chatItemSchema = new mongoose.Schema({
       ref: "User",
     },
   ],
+  isFavoriate: {
+    type: Boolean,
+    default: false,
+  },
   members: [
     {
       type: mongoose.Schema.ObjectId,

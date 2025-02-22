@@ -3,6 +3,7 @@ const Profile = require("../controllers/profile");
 
 const profileRoutes = express.Router();
 profileRoutes.get("/", Profile.getMyProfile);
+profileRoutes.post("/upload", Profile.uploadProfilePhoto);
 profileRoutes.delete("/deleteMe", Profile.deleteMyProfile);
-profileRoutes.patch("/updateMe", Profile.uploadPhoto, Profile.updateMyProfile);
+profileRoutes.post("/updateMe", Profile.updateMyProfile);
 module.exports = { profileRoutes };

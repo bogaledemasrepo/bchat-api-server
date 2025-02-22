@@ -12,12 +12,7 @@ const signUp = async (req, res) => {
     const isEmailReserved = await User.findOne({ email });
     if (isEmailReserved) throw new Error("Enterd email reserved.");
     const signUp = new User({ fullname, email, profile, password });
-    try {
-      const resp = await signUp.save();
-      console.log("TTTTTTTTTTTTTTTTTTTTT", signUp, resp);
-    } catch (error) {
-      console.log(error);
-    }
+    const resp = await signUp.save();
     if (resp) {
       const token = jwt.sign({ email }, process.env.SECRET);
       ["password", "friends", "chats", "__v"].forEach((Item) => {
@@ -56,7 +51,6 @@ const signIn = async (req, res) => {
     });
   }
 
-  console.log("To send", searchUserByEmail);
   return res.status(200).json({
     success: true,
     token: jwt.sign({ email }, process.env.SECRET),

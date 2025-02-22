@@ -1,6 +1,7 @@
 require("dotenv").config({ path: [".env.local", ".env"] });
 const express = require("express");
 const mongoose = require("mongoose");
+const multer = require("multer");
 const routes = require("./routes");
 const cors = require("cors");
 const isAutherized = require("./middleware/isAutherized");

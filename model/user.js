@@ -10,10 +10,12 @@ const userSchema = new mongoose.Schema({
     required: [true, "User must have email"],
     unique: [true, "Entered email is reserved please change it!"],
   },
-  profile: {
-    type: String,
-    default: "profile.png",
-  },
+  profile: [
+    {
+      type: String,
+      default: "profile.png",
+    },
+  ],
   password: {
     type: String,
     validate: {

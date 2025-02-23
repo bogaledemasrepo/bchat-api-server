@@ -1,10 +1,11 @@
 require("dotenv").config({ path: [".env.local", ".env"] });
 const express = require("express");
 const mongoose = require("mongoose");
-const multer = require("multer");
 const routes = require("./routes");
 const cors = require("cors");
 const isAutherized = require("./middleware/isAutherized");
+const notFound = require("./routes/NotFound");
+const handleError = require("./middleware/HandleError");
 const port = process.env.PORT || 3000;
 const BASEURL = ["/bchat/api/v1"];
 
@@ -23,6 +24,9 @@ app.use(`${BASEURL}/friends`, isAutherized, routes.friendRoutes);
 app.use(`${BASEURL}/profile`, isAutherized, routes.profileRoutes);
 app.use(`${BASEURL}/chatDetail`, isAutherized, routes.CDRoutes);
 app.use(`${BASEURL}/chatItem`, isAutherized, routes.CIRoutes);
+app.all("*", notFound);
+
+app.use(handleError);
 
 app.listen(port, () => {
   console.log(`Server app listening on port ${port}`);

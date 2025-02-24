@@ -22,8 +22,8 @@ app.use(express.json());
 app.use(`${BASEURL}/users`, routes.userRoutes);
 app.use(`${BASEURL}/friends`, isAutherized, routes.friendRoutes);
 app.use(`${BASEURL}/profile`, isAutherized, routes.profileRoutes);
-app.use(`${BASEURL}/chatDetail`, isAutherized, routes.CDRoutes);
-app.use(`${BASEURL}/chatItem`, isAutherized, routes.CIRoutes);
+app.use(`${BASEURL}/chatDetails`, isAutherized, routes.CDRoutes);
+app.use(`${BASEURL}/chatItems`, isAutherized, routes.CIRoutes);
 app.all("*", notFound);
 
 app.use(handleError);

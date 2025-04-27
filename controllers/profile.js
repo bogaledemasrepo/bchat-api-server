@@ -6,6 +6,7 @@ const getMyProfile = catchAsync(async (req, res) => {
     fullname: 1,
     email: 1,
     profile: 1,
+    explorable: 1,
   });
   res.json({
     success: true,

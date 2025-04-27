@@ -26,5 +26,9 @@ const chatItemSchema = new mongoose.Schema({
       ref: "User",
     },
   ],
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 module.exports = mongoose.model("CItem", chatItemSchema);

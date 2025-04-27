@@ -1,0 +1,731 @@
+{
+	"info": {
+		"_postman_id": "d09c46e6-9e02-45c3-a895-03dc0de0f0e0",
+		"name": "bechat-api-server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJvZ2FsZUBiZWNoYXQuaW8iLCJpYXQiOjE3NDAzMzM4NjV9.bPdgOP6RUMvJsjn1T-mFfRqs8xxLzyd1EqhkU0ljdnA",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all explorable users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJvZ2FsZUBiZWNoYXQuaW8iLCJpYXQiOjE3NDAzMzM4NjV9.bPdgOP6RUMvJsjn1T-mFfRqs8xxLzyd1EqhkU0ljdnA",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/users/explorable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"users",
+								"explorable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\"fullname\":\"Kefale Yeshambel\",\n\"email\": \"kefale@bechat.io\",\n \"password\":\"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/users/signUp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"users",
+								"signUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign in",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZXJhOUBiZWNoYXQuaW8iLCJpYXQiOjE3NDAyMTI1MTl9.7XeMbqAJH2bSw9e8asvq-uOn2zp5JmaQdDBRE6fFrVk",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"email\": \"bogale@bechat.io\",\n\t\"password\":\"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/users/signIn",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"users",
+								"signIn"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Get my profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJvZ2FsZUBiZWNoYXQuaW8iLCJpYXQiOjE3NDAzMzM4NjV9.bPdgOP6RUMvJsjn1T-mFfRqs8xxLzyd1EqhkU0ljdnA",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete my profile",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsZW1uZXc2QGJlY2hhdC5pbyIsImlhdCI6MTc0MDMzMzcwMH0.rS24lniJj2HMZuYBE6VmNoNaU54NMIXGbKkuVSmeq14",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/profile/deleteMe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"profile",
+								"deleteMe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update my profile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJvZ2FsZUBiZWNoYXQuaW8iLCJpYXQiOjE3NDAzMzM4NjV9.bPdgOP6RUMvJsjn1T-mFfRqs8xxLzyd1EqhkU0ljdnA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"explorable\": false}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/profile/updateMe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"profile",
+								"updateMe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload profile photo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "multipart/mixed",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJvZ2FsZUBiZWNoYXQuaW8iLCJpYXQiOjE3NDAzMzM4NjV9.bPdgOP6RUMvJsjn1T-mFfRqs8xxLzyd1EqhkU0ljdnA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profile",
+									"type": "file",
+									"src": "/home/kali/Pictures/Screenshot_2024-12-23_00_39_49.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/profile/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"profile",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat Items",
+			"item": [
+				{
+					"name": "Get all chat item",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJvZ2FsZUBiZWNoYXQuaW8iLCJpYXQiOjE3NDAzMzM4NjV9.bPdgOP6RUMvJsjn1T-mFfRqs8xxLzyd1EqhkU0ljdnA",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/chatItems/favorite",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"chatItems",
+								"favorite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Favorite chat item",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJvZ2FsZUBiZWNoYXQuaW8iLCJpYXQiOjE3NDAzMzM4NjV9.bPdgOP6RUMvJsjn1T-mFfRqs8xxLzyd1EqhkU0ljdnA",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/chatItems/all-chatItems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"chatItems",
+								"all-chatItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get group chat item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/chatItems/m-m-chatItems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"chatItems",
+								"m-m-chatItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Individual chat item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/chatItems/1-1-chatItems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"chatItems",
+								"1-1-chatItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create group chat item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/chatItems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"chatItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Individual chat item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/chatItems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"chatItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete chat item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/chatItems/chatItemId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"chatItems",
+								"chatItemId"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat Details",
+			"item": [
+				{
+					"name": "Get chat details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/chatDetail/67addc73548fd40bb73e9535",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"chatDetail",
+								"67addc73548fd40bb73e9535"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create chat details",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/chatDetail/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"chatDetail",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update chat details",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/chatGroups/123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"chatGroups",
+								"123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete chat details",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/chatGroups/123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"chatGroups",
+								"123"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Friends",
+			"item": [
+				{
+					"name": "Get all my friends",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJvZ2FsZUBiZWNoYXQuaW8iLCJpYXQiOjE3NDAzMzM4NjV9.bPdgOP6RUMvJsjn1T-mFfRqs8xxLzyd1EqhkU0ljdnA",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/friends",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"friends"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete friend",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/friends",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"friends"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get friend requests",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJvZ2FsZUBiZWNoYXQuaW8iLCJpYXQiOjE3NDAzNjQ1MDl9.KTuVG2j1XNWzqg9ayszlEr0sm5w2PLWcVhyrOQqb9Os",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/friends/requesit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"friends",
+								"requesit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make friend requesit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtlZmFsZUBiZWNoYXQuaW8iLCJpYXQiOjE3NDAzNjE4MTN9.oB4X7Sk-Azo_jT7aF4iMM0ljogflziI0RxYztGbfSGI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requesitTo\":\"67bb78a44190d9d8a3afe69f\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/friends/requesit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"friends",
+								"requesit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get requesit replay",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtlZmFsZUBiZWNoYXQuaW8iLCJpYXQiOjE3NDAzNjE4MTN9.oB4X7Sk-Azo_jT7aF4iMM0ljogflziI0RxYztGbfSGI",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/friends",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"friends"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make requesit replay",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/bchat/api/v1/friends",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bchat",
+								"api",
+								"v1",
+								"friends"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

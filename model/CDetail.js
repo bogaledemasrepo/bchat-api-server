@@ -20,5 +20,9 @@ const chatDetailSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: "CItem",
   },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 module.exports = mongoose.model("CDetail", chatDetailSchema);

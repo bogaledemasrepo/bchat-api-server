@@ -10,10 +10,7 @@ const getAllFriends = catchAsync(async (req, res) => {
   return res.status(200).json({ status: "success", data: resp.friends });
 });
 const getFriendRequesit = catchAsync(async (req, res) => {
-  const friendRequesits = await Friendrequesit.find(
-    { requesitTo: req.user._id },
-    { _id: 1, fullname: 1, email: 1, profile: 1 }
-  );
+  const friendRequesits = await Friendrequesit.find({}).populate("User");
   return res.status(200).json({ status: "success", data: friendRequesits });
 });
 const makeFriendRequesit = catchAsync(async (req, res, next) => {
@@ -27,7 +24,8 @@ const makeFriendRequesit = catchAsync(async (req, res, next) => {
     requestedBy: req.user._id,
     requestedTo: requesitTo,
   });
-  return res.status(200).json({ status: "success", data: friendRequesits });
+  const resp = await friendRequesits.save();
+  return res.status(200).json({ status: "success", data: resp });
 });
 const getFriendRequesitReplay = catchAsync(async (req, res) => {
   const requesitReplay = await Friendrequesit.find(
